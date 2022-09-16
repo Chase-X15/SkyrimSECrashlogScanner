@@ -16,6 +16,7 @@ print("CRASHLOGS MUST BE NAMED crash-[date].log AND IN THE SAME FOLDER AS THIS S
 print("------------------------------")
 print("BEGINNING SCAN...")
 
+# Debug
 longStartTime = time.time()
 originalPrompt = sys.stdout
 
@@ -43,11 +44,11 @@ for file in os.listdir("."):
         strLogContents = strCrashLog.read()
 
         # Possibly relevant callout
-        if ".dll" in strMainError and "tbbmalloc" not in strMainError:
+        if ".dll" in strMainError and "tbbmalloc" not in strMainError and "KERNELBASE" not in strMainError:
             print("------------------------------")
             print("MAIN ERROR REPORTS A DLL WAS INVLOVED IN THIS CRASH!")
             print("------------------------------")
-        if "KERNELBASE.dll+004474C" in strMainError:
+        if "KERNELBASE.dll+004474C" in strMainError or "KERNELBASE.dll+0034FD9" in strMainError:
             print("------------------------------")
             print("MAIN ERROR REPORTS POSSIBLE DECIMAL SEPARATOR CRASH!")
             print("------------------------------")
@@ -495,6 +496,7 @@ for file in os.listdir("."):
         strCrashLog.close()
         sys.stdout.close()
 
+# Debug
 sys.stdout = originalPrompt
 
 print("SCAN COMPLETE...")
@@ -511,12 +513,15 @@ for file in os.listdir("."):
         for line in strScanFile:
             if line != "\n":
                 intLineCount += 1
-        if int(intLineCount) <= int(10):
-            arrFailedScans.append(strScanName.removesuffix("-SCANNED.md") + "-FAILED.log")
+        if int(intLineCount) <= int(25):
+            arrFailedScans.append(strScanName.removesuffix("-SCANNED.md"))
+            strScanFile.close()
+            os.rename(file, strLogName + "-FAILED.md")
 
 if len(arrFailedScans) >= 1:
     print("UNABLE TO SCAN FOLLOWING LOGS: ")
     for elem in arrFailedScans:
         print(elem)
 
+# Finish
 sys.stdout.close()
