@@ -145,6 +145,13 @@ for file in os.listdir("."):
             print("Priority Level: LOW")
             print("Detected number of tbbmalloc.dll : ",intGeneric)
             print("------------------------------")
+        # BA2 Limit
+        intLooseFileAsync = strLogContents.count("LooseFileAsyncStream")
+        if int(intLooseFileAsync) >= int(1):
+            print("Found BA2 Callout!")
+            print("Priority Level: HIGH")
+            print("Count of LooseFileAsyncStream : ",intLooseFileAsync)
+            print("------------------------------")
         # Rendering
         intRender = strLogContents.count("d3d11.dll")
         if int(intRender) >= int(3):
@@ -303,13 +310,6 @@ for file in os.listdir("."):
             print("Count of ParticleSystem : ",intParticleSystem)
             print("Count of NiParticleSystem : ",intNiParticleSystem)
             print("------------------------------")
-        # BA2 Limit
-        intLooseFileAsync = strLogContents.count("LooseFileAsyncStream")
-        if int(intLooseFileAsync) >= int(1):
-            print("Found BA2 Callout!")
-            print("Priority Level: HIGH")
-            print("Count of LooseFileAsyncStream : ",intLooseFileAsync)
-            print("------------------------------")
         # MCM
         intFaderData = strLogContents.count("FaderData")
         intFaderMenu = strLogContents.count("FaderMenu")
@@ -389,7 +389,7 @@ for file in os.listdir("."):
         int0x7 = strLogContents.count("0x00000007")
         int0x8 = strLogContents.count("0x00000008")
         int0x14 = strLogContents.count("0x00000014")
-        if (int(intPlayerCharacter) and int(int0x7)) >= int(2) and (int(int0x14) or int(int0x8)) >= int(2):
+        if (int(intPlayerCharacter) and int(int0x7)) >= int(2) and (int(int0x8) or int(int0x14)) >= int(2):
             print("Found PLAYER CHARACTER Callout!")
             print("Priority Level: UNKNOWN")
             print("Count of PlayerCharacter : ",intPlayerCharacter)
