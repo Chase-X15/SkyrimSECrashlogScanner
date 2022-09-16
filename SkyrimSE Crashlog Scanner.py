@@ -1,7 +1,7 @@
 # Created By: Chase
 # Date Created: 9/9/2022
 # Checks directory for Skyrim SE Crash Logs and scans them for potential culprits
-# Version: 1.3
+# Version: 1.4
 # Last Edited: 9/15/2022
 
 import os
@@ -10,7 +10,7 @@ import time
 import fnmatch
 
 # Happy little window
-print("Crashlog Scanner - Ver 1.3 - Made By Chase")
+print("Crashlog Scanner - Ver 1.4 - Made By Chase")
 print("------------------------------")
 print("CRASHLOGS MUST BE NAMED crash-[date].log AND IN THE SAME FOLDER AS THIS SCRIPT")
 print("------------------------------")
@@ -513,7 +513,7 @@ for file in os.listdir("."):
         for line in strScanFile:
             if line != "\n":
                 intLineCount += 1
-        if int(intLineCount) <= int(25):
+        if int(intLineCount) <= int(50):
             arrFailedScans.append(strScanName.removesuffix("-SCANNED.md"))
             strScanFile.close()
             os.rename(file, strLogName + "-FAILED.md")
