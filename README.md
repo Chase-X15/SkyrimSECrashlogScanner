@@ -2,6 +2,7 @@
 Just a simple script to parse crash logs produced by the crash logger (https://www.nexusmods.com/skyrimspecialedition/mods/59596) and attempt to identify possible culprits.
 
 # How To Use
+_It should be noted that you need python installed to run a python script_
 1. Simply place the script in a folder
 2. Add any crash logs to that folder (Must be a file named "crash-[date].log" this is the default output from the above mentioned mod)
 3. Double click the script and a new *-SCANNED log should populate
