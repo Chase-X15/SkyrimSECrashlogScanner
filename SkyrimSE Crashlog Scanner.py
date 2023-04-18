@@ -56,7 +56,7 @@ for file in os.listdir("."):
             print("------------------------------")
             print("MAIN ERROR REPORTS POSSIBLE FACE OVERLAY CRASH!")
             print("------------------------------")
-        if "SkyrimSE.exe+0A" in strMainError:
+        if "+00A" in strMainError or "+0A" in strMainError:
             print("------------------------------")
             print("MAIN ERROR REPORTS POSSIBLE ANIMATION CRASH!")
             print("------------------------------")
@@ -79,6 +79,22 @@ for file in os.listdir("."):
         if "5E1F22" in strMainError:
             print("------------------------------")
             print("MAIN ERROR REPORTS POSSIBLE MISSING MASTER CRASH!")
+            print("------------------------------")
+        if "BE6DD3" in strMainError:
+            print("------------------------------")
+            print("MAIN ERROR REPORTS POSSIBLE ANIMATION LIMIT CRASH!")
+            print("------------------------------")
+        if "0DBC3EC" in strMainError:
+            print("------------------------------")
+            print("MAIN ERROR REPORTS POSSIBLE MESH/TEXTURE CRASH!")
+            print("------------------------------")
+        if "0FB171E" in strMainError:
+            print("------------------------------")
+            print("MAIN ERROR REPORTS POSSIBLE UI/MENU CRASH!")
+            print("------------------------------")
+        if "001EAB4" in strMainError:
+            print("------------------------------")
+            print("MAIN ERROR REPORTS POSSIBLE OBODY NG/RACEMENU CRASH!")
             print("------------------------------")
 
 
@@ -470,7 +486,7 @@ for file in os.listdir("."):
         print("------------------------------")
         print("POSSIBLE FILE CULPRITS:")
         for line in strAllLines:
-            if ".NIF" in line or ".nif" in line or ".BGSM" in line or ".bgsm" in line or ".DDS" in line or ".dds" in line or ".SWF" in line or ".swf" in line or ".cpp" in line or ".tri" in line:
+            if ".NIF" in line or ".nif" in line or ".BGSM" in line or ".bgsm" in line or ".DDS" in line or ".dds" in line or ".SWF" in line or ".swf" in line or ".tri" in line or ".hkx" in line or ".HKX" in line:
                 line = line.replace("File Name: ", "") 
                 line = line.replace("Name: ", "") 
                 line = line.replace('"', '')
