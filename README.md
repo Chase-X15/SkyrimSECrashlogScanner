@@ -15,7 +15,7 @@ Taking note of things like:
 * What was happening when you crashed?
 * Where were you when you crashed?  
 
-Can all potentionly point to the culprit better than the crashlog can
+Can all potentially point to the culprit better than the crashlog can
 
 I've tried to use information I've found across articles on Nexus Mods and some forums for both Skyrim and Fallout, but it is most certainly not a complete or perfect script.  
 Shout out to Poet for their fallout crash log reading document and Fikthenig for their skyrim .net script framework document.  
